@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>影像与文学讨论夜 · Film & Literature Talk</title>
+    <style>
+        .page {
+            display: inline-block;
+            background-color: #FFECD6; /* 晨光杏色（学号尾8专属） */
+            box-shadow: 0 0 30px rgba(80, 58, 35, 0.25);
+            text-align: left;
+            max-width: 720px;
+            padding: 20px 30px; /* 增加内边距提升可读性 */
+            margin: 20px auto; /* 居中显示 */
+        }
+
+        /* 并集选择器：所有标题统一样式 */
+        h1, h2, h3, h4, h5, h6 {
+            color: #503A23;
+            font-family: "Microsoft YaHei", sans-serif;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #E8C890;
+            padding-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            border-bottom: none;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 22px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /* 段落样式与伪元素 */
+        p {
+            color: #333;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        p::first-letter {
+            font-size: 24px;
+            color: #D97706;
+            font-weight: bold;
+            float: left;
+            margin-right: 5px;
+        }
+
+        div::first-line {
+            font-weight: bold;
+            color: #7C2D12;
+        }
+
+        /* ID选择器：重要提示强调样式 */
+        p#intro {
+            font-size: 18px;
+            font-weight: bold;
+            color: #DC2626;
+            border: 2px dashed #DC2626;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #FFF8E6;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #A16207;
+            padding: 12px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        th {
+            background-color: #FBBF24;
+            color: #7C2D12;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFFDF5;
+        }
+
+        /* 后代选择器：表格内链接样式 */
+        div table a {
+            color: #1E40AF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        div table a:hover {
+            color: #DC2626;
+            text-decoration: underline;
+        }
+
+        /* 链接伪类：全局链接样式 */
+        a:link {
+            color: #1E40AF;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #7E22CE;
+        }
+
+        a:hover {
+            color: #DC2626;
+            text-decoration: underline;
+            font-size: 105%;
+        }
+
+        a:active {
+            color: #0F766E;
+            text-decoration: none;
+        }
+
+        /* 带类名的链接样式 */
+        a.red {
+            color: #DC2626;
+            border: 1px solid #DC2626;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-right: 15px;
+        }
+
+        a.blue {
+            color: #1D4ED8;
+            border: 1px solid #1D4ED8;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        a.red:hover, a.blue:hover {
+            background-color: #FFF8E6;
+            text-decoration: none;
+        }
+
+        /* 底部公告区样式 */
+        .notice {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid #FBBF24;
+            border-radius: 5px;
+            background-color: #FFFDF5;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- ①顶部标题区 -->
+        <div>
+            <h1>泉城路影像与文学讨论夜 · Film & Literature Talk</h1>
+        </div>
+
+        <!-- ②活动介绍区 -->
+        <div>
+            <h2 id="intro">活动介绍</h2>
+            <p>影像与文学，是人类表达情感、记录时代的两种伟大艺术形式。当光影流动的电影与笔墨生香的文学相遇，便会碰撞出奇妙的思想火花。本活动旨在为所有热爱影像与文学的朋友搭建交流平台，让我们一起探索故事背后的深层含义，分享不同视角下的审美体验。</p>
+            <p>本次讨论夜将聚焦经典作品的跨媒介改编，我们会深入剖析《千与千寻》中宫崎骏的动画美学与文学隐喻，探讨这部作品如何通过影像语言传递关于成长、孤独与救赎的深刻主题。同时，我们也会对比文学原著与电影改编的差异，感受不同艺术形式的独特魅力。</p>
+            <p>无论你是资深影迷、文学爱好者，还是仅仅想寻找一个志同道合的交流圈子，都欢迎加入我们。在这里，你可以畅所欲言，分享你的观影感受与读书心得，也可以聆听他人的独特见解，拓宽自己的认知边界。</p>
+            <p id="intro">重要提示：参与活动请提前观看指定影片或阅读相关文学作品，以便更好地参与讨论；活动现场提供免费饮品，请勿携带零食入场，保持场地整洁。</p>
+        </div>
+
+        <!-- ③活动报名信息表格区 -->
+        <div>
+            <h3>报名信息登记表</h3>
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <th>联系电话</th>
+                    <th>参与场次</th>
+                    <th>讨论主题</th>
+                    <th>是否已准备分享内容</th>
+                </tr>
+                <tr>
+                    <td>李明</td>
+                    <td>138****1234</td>
+                    <td>第一期（《千与千寻》专场）</td>
+                    <td>动画中的文学隐喻</td>
+                    <td>是 <a href="https://example.com/share1" target="_blank">查看分享提纲</a></td>
+                </tr>
+                <tr>
+                    <td>张晓雅</td>
+                    <td>135****5678</td>
+                    <td>第一期（《千与千寻》专场）</td>
+                    <td>跨媒介改编的艺术表达</td>
+                    <td>否</td>
+                </tr>
+                <tr>
+                    <td>王浩宇</td>
+                    <td>139****9012</td>
+                    <td>第二期（《The Little Prince》专场）</td>
+                    <td>童话与现实的碰撞</td>
+                    <td>是 <a href="https://example.com/share2" target="_blank">查看分享提纲</a></td>
+                </tr>
+                <tr>
+                    <td>陈雨桐</td>
+                    <td>136****3456</td>
+                    <td>第一期（《千与千寻》专场）</td>
+                    <td>角色塑造与成长主题</td>
+                    <td>否</td>
+                </tr>
+                <tr>
+                    <td>赵嘉明</td>
+                    <td>137****7890</td>
+                    <td>第二期（《The Little Prince》专场）</td>
+                    <td>文学作品的影像化呈现</td>
+                    <td>是 <a href="https://example.com/share3" target="_blank">查看分享提纲</a></td>
+                </tr>
+                <tr>
+                    <td>林晓雯</td>
+                    <td>134****2345</td>
+                    <td>第三期（《哈利·波特》专场）</td>
+                    <td>魔法世界的文学建构</td>
+                    <td>否</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ④页面链接区 -->
+        <div>
+            <h3>相关链接</h3>
+            <div>
+                <a href="https://hongchenwusdnu.github.io/bookstore/job4.html" class="red" target="_blank">查看往期活动速写记录</a>
+                <a href="job3.html" class="blue" target="_blank">在线咨询旅途文学讨论详情</a>
+            </div>
+        </div>
+
+        <!-- ⑤底部公告区 -->
+        <div class="notice">
+            <p>公告一：活动时间为每周五晚上19:00-21:30，地点位于泉城路文化中心三楼多功能厅，如有调整将提前3天在群内通知。<br>请大家提前15分钟到场签到，避免迟到影响他人。</p>
+            <p>公告二：每期活动将设置1-2个核心讨论主题，同时预留自由交流环节。欢迎大家提前准备相关话题、疑问或感悟，在活动中积极分享。<br>优秀分享者将获得经典文学书籍或电影周边礼品一份。</p>
+            <p>公告三：为保证讨论质量，每期活动人数限制为30人，报满即止。报名后如需取消，请至少提前24小时联系工作人员（微信：film_literature_2024）。<br>连续两次报名未参加且未取消者，将暂停后续一期的报名资格。</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贝斯社 - 2025春季招新</title>
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f7fa;
+            padding-top: 80px; /* 给固定导航栏留空间 */
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* 顶部固定导航栏 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #222831;
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        .nav-inner {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* 背景音乐按钮 */
+        .audio-btn {
+            background-color: #00adb5;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .audio-btn:hover {
+            background-color: #008891;
+        }
+        /* 锚点链接 */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #a8dadc;
+        }
+
+        /* 板块通用样式 */
+        .section {
+            margin-bottom: 80px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 40px;
+        }
+        .section-title {
+            font-size: 26px;
+            color: #222831;
+            border-bottom: 3px solid #00adb5;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* 社团简介样式 */
+        .intro-content {
+            font-size: 16px;
+            text-align: justify;
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 活动安排表格样式 */
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .activity-table th, .activity-table td {
+            border: 1px solid #ddd;
+            padding: 14px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .activity-table th {
+            background-color: #222831;
+            color: #fff;
+        }
+        .activity-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        /* 风采展示样式 */
+        .showcase-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        .club-img {
+            width: 50%;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.4s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        .club-img:hover {
+            transform: scale(1.03);
+        }
+        .img-desc {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        .club-video {
+            width: 80%;
+            height: 450px;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* 社员故事样式 */
+        .stories-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .story-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .story-title {
+            font-size: 18px;
+            color: #222831;
+            font-weight: 600;
+        }
+        .story-content {
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* 在线报名表样式 */
+        .form-table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+        .form-table td {
+            font-size: 16px;
+        }
+        .form-table td:first-child {
+            width: 30%;
+            text-align: right;
+            font-weight: 500;
+            color: #222831;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #00adb5;
+            box-shadow: 0 0 0 2px rgba(0, 173, 181, 0.2);
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .form-btn-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .submit-btn, .reset-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn {
+            background-color: #00adb5;
+            color: #fff;
+            margin-right: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #008891;
+        }
+        .reset-btn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* 返回顶部按钮样式 */
+        .back-top {
+            display: inline-block;
+            background-color: #222831;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-top:hover {
+            background-color: #393e46;
+        }
+        .back-top-container {
+            text-align: center;
+        }
+
+        /* 响应式适配（手机端） */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .activity-table th, .activity-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+            .club-img {
+                width: 100%;
+            }
+            .club-video {
+                width: 100%;
+                height: 250px;
+            }
+            .form-table {
+                width: 100%;
+                border-spacing: 5px;
+            }
+            .form-table td {
+                font-size: 14px;
+                display: block;
+                width: 100%;
+            }
+            .form-table td:first-child {
+                text-align: left;
+                margin-bottom: 5px;
+            }
+            .radio-group, .checkbox-group {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏（含背景音乐按钮+锚点链接） -->
+    <div class="top-nav">
+        <div class="nav-inner">
+            <!-- 背景音乐播放按钮 -->
+            <button class="audio-btn" onclick="document.getElementById('bg-music').play()">播放招新主题曲</button>
+            <audio id="bg-music" src="bass-club-theme.mp3" preload="auto">
+                您的浏览器不支持音频播放，请更新浏览器版本
+            </audio>
+            <!-- 锚点链接（跳转至对应板块） -->
+            <div class="nav-links">
+                <a href="#intro">社团简介</a>
+                <a href="#activity">活动安排</a>
+                <a href="#showcase">风采展示</a>
+                <a href="#stories">社员故事</a>
+                <a href="#signup">在线报名</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 1. 社团简介板块 -->
+        <section id="intro" class="section">
+            <h2 class="section-title">贝斯社简介</h2>
+            <div class="intro-content">
+                <p>贝斯社成立于2015年，是学校极具活力的摇滚音乐类社团，以“用低音传递力量，以节奏连接热爱”为宗旨，专注于贝斯演奏教学、乐队合作排练及校园音乐文化传播。成立至今，社团累计吸纳社员600余人，组建校园乐队20余支，多次在“校园摇滚节”“毕业季汇演”等活动中担任伴奏核心，是校园音乐场景的“低音支柱”。</p>
+                <p>社团硬件设施完善，拥有8把专业贝斯（含4把电贝斯、2把原声贝斯、2把便携练习贝斯）、6台专业贝斯音箱、4套效果器（含失真、延迟、压缩等常用效果），并配备2间专属排练室（含隔音处理、调音台设备）。同时与校外3家专业音乐工作室合作，定期邀请资深贝斯手开展线下教学，内容涵盖“基础指法训练”“即兴伴奏技巧”“乐队配合逻辑”等。</p>
+                <p>日常活动体系清晰，分为三大模块：①“基础训练营”（每周2次，针对零基础社员，从握拨片、按弦姿势教起，配套《贝斯入门教程》）；②“乐队孵化计划”（每月组建临时乐队，分配贝斯、吉他、鼓、 vocals 角色，完成1首歌曲的排演）；③“贝斯大师课”（每学期2-3次，邀请校外音乐人分享演奏经验，曾邀请知名乐队贝斯手开展专题讲座）。每学期末举办的“低音盛宴”贝斯专场演出，更是校园摇滚爱好者的年度盛会。</p>
+                <p>2025年春季学期，社团新增两大特色项目：①“贝斯+街头”计划——联合街舞社开展“街头即兴表演”，在校园广场、商圈等地进行贝斯伴奏+街舞展示；②“零基础速成营”——针对学业繁忙的社员，推出“15分钟碎片化练习指南”，搭配线上打卡监督，帮助快速入门。无论你是喜欢摇滚、流行、爵士，还是纯零基础的“音乐小白”，只要对“低音节奏”感兴趣，贝斯社都能为你提供成长的舞台。</p>
+                <p>在这里，你不必担心“不会乐器”——我们有耐心的学长学姐一对一帮扶；不必担心“没有乐队”——我们会帮你匹配志同道合的音乐伙伴；更不必担心“没有舞台”——校园演出、校外商演、线上直播等机会源源不断。2025春季招新，期待和你一起，用贝斯的低音，点燃校园的音乐热情！</p>
+            </div>
+            <!-- 返回顶部按钮 -->
+            <div class="back-top-container">
+                <a href="#top" class="back-top">返回顶部</a>
+            </div>
+        </section>
+
+        <!-- 2. 活动安排板块 -->
+        <section id="activity" class="section">
+            <h2 class="section-title">2025年春季学期活动安排</h2>
+            <table class="activity-table">
+                <tr>
+                    <!-- 第一行跨4列 -->
+                    <th colspan="4">贝斯社 2025 年春季学期活动安排表</th>
+                </tr>
+                <tr>
+                    <th>活动时间</th>
+                    <th>活动名称</th>
+                    <th>活动地点</th>
+                    <th>参与对象</th>
+                </tr>
+                <tr>
+                    <td>2025.03.16（周日）19:00-21:00</td>
+                    <td>新成员见面会</td>
+                    <!-- 跨2行（与基础教学公开课同教室） -->
+                    <td rowspan="2">音乐楼302贝斯排练室</td>
+                    <td>全体新社员</td>
+                </tr>
+                <tr>
+                    <td>2025.03.23（周日）19:00-21:00</td>
+                    <td>贝斯基础教学公开课（握拨片+按弦）</td>
+                    <td>零基础新社员</td>
+                </tr>
+                <tr>
+                    <td>2025.04.13（周日）14:00-17:00</td>
+                    <td>乐队孵化计划（第一期）——组建临时乐队</td>
+                    <td>音乐楼301-303排练室</td>
+                    <td>全体社员（需提前报名）</td>
+                </tr>
+                <tr>
+                    <td>2025.04.27（周日）19:00-21:00</td>
+                    <td>贝斯大师课（邀请本地乐队贝斯手）</td>
+                    <td>音乐楼201报告厅</td>
+                    <td>全体社员（对外开放）</td>
+                </tr>
+                <tr>
+                    <td>2025.05.11（周六）15:00-18:00</td>
+                    <td>“贝斯+街头”即兴表演（校园广场）</td>
+                    <td>学校中心广场</td>
+                    <td>参与项目的社员+街舞社成员</td>
+                </tr>
+                <tr>
+                    <td>2025.05.25（周日）19:00-22:00</td>
+                    <td>“低音盛宴”专场演出彩排</td>
+                    <td>学校大礼堂</td>
+                    <td>参演社员+工作人员</td>
+                </tr>
+                <tr>
+                    <td>2025.06.15（周日）19:00-22:00</td>
+                    <td>“低音盛宴”贝斯专场演出</td>
+                    <td>学校大礼堂</td>
+                    <td>全体社员（对外开放）</td>
+                </tr>
+            </table>
+            <!-- 返回顶部按钮 -->
+            <div class="back-top-container">
+                <a href="#top" class="back-top">返回顶部</a>
+            </div>
+        </section>
+
+        <!-- 3. 风采展示板块 -->
+        <section id="showcase" class="section">
+            <h2 class="section-title">社团风采展示</h2>
+            <div class="showcase-content">
+                <!-- 点击图片跳转至活动详情页 -->
+                <a href="club_intro.html" target="_self">
+                    <img src="bass-club-daily.jpg" alt="贝斯社日常排练照片" class="club-img">
+                </a>
+                <p class="img-desc">图：贝斯社日常排练场景（2025.02，音乐楼302排练室）| 点击查看更多活动详情</p>
+
+                <!-- 嵌入视频 -->
+                <h3 style="font-size: 18px; color: #222831; margin-bottom: 15px;">社团活动视频（5秒）</h3>
+                <embed src="bass-club-video.mp4" type="video/mp4" class="club-video" controls>
+                <p class="img-desc">视频：贝斯社“街头即兴表演”精彩片段（2024.12）</p>
+            </div>
+            <!-- 返回顶部按钮 -->
+            <div class="back-top-container">
+                <a href="#top" class="back-top">返回顶部</a>
+            </div>
+        </section>
+
+        <!-- 4. 社员故事板块 -->
+        <section id="stories" class="section">
+            <h2 class="section-title">社员故事（节选）</h2>
+            <div class="stories-content">
+                <!-- 故事1 -->
+                <div class="story-item">
+                    <h3 class="story-title">1. 从“分不清贝斯和吉他”到“乐队贝斯手”——张阳的音乐蜕变</h3>
+                    <div class="story-content">
+                        <p>“刚入学时，我连贝斯和吉他都分不清——总觉得‘长得差不多，都是四根弦’。”回忆起2023年加入贝斯社的初衷，计算机学院2023级的张阳笑着说。那时的他，只是因为喜欢摇滚乐队的“重节奏”，偶然看到贝斯社招新海报，抱着“试试看”的心态报了名，却没想到这个决定会让他成为校园乐队的核心成员。</p>
+                        <p>刚入社的第一个月，张阳就遇到了“难题”：按弦手指疼到握不住笔，节奏总跟不准节拍器，甚至连简单的“根音伴奏”都弹得断断续续。“有次基础课上，我弹错了8次，差点想把贝斯扔在一边。”张阳说，“是社长李哥拦住了我——他把自己的‘入门笔记’借给我，还每天晚上陪我在排练室练1小时，从‘数拍子’开始教起。”</p>
+                        <p>为了跟上进度，张阳把“练琴”融入了日常生活：早上去教室的路上，用手机APP练“节奏听辨”；午休时，在宿舍用枕头当“贝斯”练按弦姿势；晚上做完作业，去排练室练1小时基本功。指尖磨出茧子，指关节贴满创可贴，他却越练越上瘾——“当第一次完整弹出《海阔天空》的贝斯伴奏时，那种‘掌控节奏’的感觉，比打游戏赢了还爽！”</p>
+                        <p>2024年10月，社团“乐队孵化计划”启动，张阳报名加入了“拾光乐队”，担任贝斯手。为了准备校园摇滚节，他们每周排练3次，张阳不仅要记自己的贝斯线，还要帮吉他手、鼓手校准节奏。演出当天，当他弹出第一声贝斯根音，台下观众跟着节奏拍手时，张阳突然觉得“所有的辛苦都值了”。如今，“拾光乐队”已经成为校园小有名气的乐队，还接到了校外商演的邀请。</p>
+                        <p>“如果当初没有加入贝斯社，我可能永远不知道自己能玩乐器，更不会有‘乐队梦’的体验。”张阳说，“现在我不仅能弹贝斯，还学会了简单的编曲，甚至能帮新社员改谱子。贝斯社教会我的不只是乐器技巧，还有‘坚持’和‘合作’——这才是最宝贵的收获。”</p>
+                    </div>
+                </div>
+
+                <!-- 故事2 -->
+                <div class="story-item">
+                    <h3 class="story-title">2. 用贝斯治愈焦虑——李雪的“低音疗愈”之旅</h3>
+                    <div class="story-content">
+                        <p>“大二那年，我因为学业压力患上了焦虑症，晚上经常失眠，直到遇到贝斯，一切才慢慢变好。”这是贝斯社2022级社员李雪的故事。作为临床医学专业的学生，李雪的课程压力很大，加上对未来的迷茫，她一度陷入情绪低谷，直到2023年偶然加入了贝斯社。</p>
+                        <p>“第一次摸到贝斯时，我就被它的‘低音’吸引了——那种沉稳、厚重的声音，像有人在轻轻拍我的后背，让我瞬间平静下来。”李雪说，“社长告诉我，‘贝斯是乐队的“心跳”，负责稳定节奏，你只要跟着自己的心跳弹就好’，这句话我记到现在。”</p>
+                        <p>刚开始练琴时，李雪每天都会在排练室弹30分钟——不追求弹多复杂的曲子，只是反复弹简单的根音、分解和弦。“弹贝斯的时候，我的注意力会完全集中在‘节奏’上，脑子里不会想论文、考试，只有手指和琴弦的接触感，那种‘专注’的感觉特别治愈。”李雪说，慢慢地，她的失眠症状缓解了，情绪也变得稳定了。</p>
+                        <p>2024年，李雪发起了“低音疗愈”小项目——在社团内组织“减压练琴会”，邀请有焦虑情绪的社员一起弹贝斯，分享“音乐与情绪”的故事。她们会选择节奏舒缓的曲子，比如《Over the Rainbow》《卡农》的贝斯改编版，让大家在低音中放松。有次活动中，一名新社员告诉李雪：“弹完贝斯后，我感觉胸口的‘石头’好像轻了一点。”这句话让李雪坚定了把项目做下去的决心。</p>
+                        <p>如今，李雪不仅自己走出了焦虑，还成了社团的“心理小助手”——她会用专业知识帮社员疏导情绪，再搭配贝斯练习，双重“疗愈”。“贝斯对我来说，不仅是乐器，更是‘情绪出口’和‘朋友’。”李雪说，“我希望未来能把‘低音疗愈’推广到更多人，让更多人知道，音乐不仅能带来快乐，还能带来力量。”</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 返回顶部按钮 -->
+            <div class="back-top-container">
+                <a href="#top" class="back-top">返回顶部</a>
+            </div>
+        </section>
+
+        <!-- 5. 在线报名板块 -->
+        <section id="signup" class="section">
+            <h2 class="section-title">贝斯社2025春季招新报名表</h2>
+            <form action="" method="get">
+                <table class="form-table">
+                    <!-- 1. 姓名 -->
+                    <tr>
+                        <td>姓名：</td>
+                        <td><input type="text" name="name" class="form-control" required placeholder="请输入您的真实姓名"></td>
+                    </tr>
+                    <!-- 2. 性别 -->
+                    <tr>
+                        <td>性别：</td>
+                        <td class="radio-group">
+                            <input type="radio" name="gender" id="male" value="male" required>
+                            <label for="male">男</label>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female">女</label>
+                        </td>
+                    </tr>
+                    <!-- 3. 出生日期 -->
+                    <tr>
+                        <td>出生日期：</td>
+                        <td>
+                            <input type="text" name="birth-year" class="form-control" style="width: 28%; display: inline-block;" required placeholder="年（如2005）">
+                            <input type="text" name="birth-month" class="form-control" style="width: 28%; display: inline-block; margin: 0 10px;" required placeholder="月（如3）">
+                            <input type="text" name="birth-day" class="form-control" style="width: 28%; display: inline-block;" required placeholder="日（如15）">
+                        </td>
+                    </tr>
+                    <!-- 4. 手机 -->
+                    <tr>
+                        <td>手机号码：</td>
+                        <td><input type="text" name="phone" class="form-control" required placeholder="请输入可联系的手机号"></td>
+                    </tr>
+                    <!-- 5. 邮箱 -->
+                    <tr>
+                        <td>电子邮箱：</td>
+                        <td><input type="text" name="email" class="form-control" required placeholder="请输入常用邮箱（用于接收通知）"></td>
+                    </tr>
+                    <!-- 6. 乐器基础 -->
+                    <tr>
+                        <td>是否有贝斯基础：</td>
+                        <td class="radio-group">
+                            <input type="radio" name="bass-base" id="has-base" value="has" required>
+                            <label for="has-base">有（请在自我介绍中说明基础程度）</label>
+                            <input type="radio" name="bass-base" id="no-base" value="no">
+                            <label for="no-base">无</label>
+                        </td>
+                    </tr>
+                    <!-- 7. 兴趣方向（多选） -->
+                    <tr>
+                        <td>兴趣方向：</td>
+                        <td class="checkbox-group">
+                            <input type="checkbox" name="interest" id="basic" value="basic">
+                            <label for="basic">基础贝斯学习</label>
+                            <input type="checkbox" name="interest" id="band" value="band">
+                            <label for="band">乐队合作排练</label>
+                            <input type="checkbox" name="interest" id="street" value="street">
+                            <label for="street">街头即兴表演</label>
+                            <input type="checkbox" name="interest" id="master" value="master">
+                            <label for="master">贝斯大师课</label>
+                            <input type="checkbox" name="interest" id="healing" value="healing">
+                            <label for="healing">低音疗愈活动</label>
+                        </td>
+                    </tr>
+                    <!-- 8. 年级（下拉选择） -->
+                    <tr>
+                        <td>所在年级：</td>
+                        <td>
+                            <select name="grade" class="form-control" required>
+                                <option value="">请选择您的年级</option>
+                                <option value="freshman">大一</option>
+                                <option value="sophomore">大二</option>
+                                <option value="junior">大三</option>
+                                <option value="senior">大四</option>
+                                <option value="postgraduate">研究生</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- 9. 自我介绍 -->
+                    <tr>
+                        <td>自我介绍：</td>
+                        <td>
+                            <textarea name="intro" class="form-control" rows="6" required placeholder="请简单介绍自己（如性格、爱好），以及加入贝斯社的理由、期待参与的活动等..."></textarea>
+                        </td>
+                    </tr>
+                    <!-- 10. 服从活动安排 -->
+                    <tr>
+                        <td>是否服从社团活动安排：</td>
+                        <td class="radio-group">
+                            <input type="radio" name="obey" id="obey-yes" value="yes" required>
+                            <label for="obey-yes">是</label>
+                            <input type="radio" name="obey" id="obey-no" value="no">
+                            <label for="obey-no">否（请在自我介绍中说明特殊情况）</label>
+                        </td>
+                    </tr>
+                </table>
+                <!-- 提交与重置按钮 -->
+                <div class="form-btn-group">
+                    <input type="submit" value="提交报名" class="submit-btn">
+                    <input type="reset" value="重置表单" class="reset-btn">
+                </div>
+            </form>
+            <!-- 返回顶部按钮 -->
+            <div class="back-top-container">
+                <a href="#top" class="back-top">返回顶部</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
